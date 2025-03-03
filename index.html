@@ -14,8 +14,8 @@
     </aside>
 
     <header>
-        <div class="logo">Pokémon Shop</div>
         <img src="assets/img/pokemonlogo.png" alt="Sleeves">
+        <input type="text" id="search-bar" placeholder="Search products..." />
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -37,13 +37,13 @@
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product">
-                <img src="assets/img/lostorginbox.jpg" alt="lostorginbox">
+                <img src="assets/img/pokemonsilver.jpg" alt="lostorginbox">
                 <h3>Pokemon Lost Origin Elite Trainer Box</h3>
                 <p>$89.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product">
-                <img src="assets/img/cardsleevses.jpg" alt="Sleeves">
+                <img src="assets/img/pokemon151.jpg" alt="Sleeves">
                 <h3>Ultra Pro Soft Card Sleeves (100 stuks)</h3>
                 <p>$1.99</p>
                 <button class="add-to-cart">Add to Cart</button>
@@ -173,6 +173,58 @@
 </div>
 
 
+<!-- ADD TO CART -->
+<script>
+    // Selecteer alle "Add to Cart" knoppen
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+    // Winkelwagen array om de items op te slaan
+    let cartItems = [];
+
+    // Functie om een item toe te voegen aan de winkelwagen
+    function addToCart(event) {
+        const product = event.target.closest('.product');
+        const productName = product.querySelector('h3').textContent;
+        const productPrice = product.querySelector('p').textContent;
+
+        // Voeg het product toe aan de winkelwagen
+        cartItems.push({ name: productName, price: productPrice });
+
+        // Update het winkelwagentellertje
+        document.getElementById('cart-count').textContent = cartItems.length;
+
+        // Toon een bericht in de winkelwagen (optioneel)
+        const cartItemsDiv = document.getElementById('cart-items');
+        cartItemsDiv.innerHTML = cartItems.map(item => `<p>${item.name} - ${item.price}</p>`).join('');
+    }
+
+    // Voeg een event listener toe aan elke "Add to Cart" knop
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+</script>
+
+
+
+<!-- CHECKOUT -->
+<script>
+    // Selecteer de checkout knop
+    const checkoutButton = document.getElementById('checkout');
+
+    // Functie om af te rekenen
+    function checkout() {
+        if (cartItems.length > 0) {
+            alert('Je hebt ' + cartItems.length + ' item(s) in je winkelwagen. Bedankt voor je aankoop!');
+        } else {
+            alert('Je winkelwagen is leeg. Voeg items toe voordat je afrekent.');
+        }
+    }
+
+    // Voeg een event listener toe aan de checkout knop
+    checkoutButton.addEventListener('click', checkout);
+</script>
+
+
 
                 <section id="cart">
                     <h2>Your Cart</h2>
@@ -203,11 +255,18 @@
                         justify-content: space-between;
                         align-items: center;
                         z-index: 1000;
-                        font-size: 30;
+                        font-size: 30px;
+                        color: white;
+                        text-shadow: 0 0px 7px rgb(0 0 0);
                         background-image: url('assets/img/pokemonheader.jpg'); 
                         background-size: cover; 
                         background-position: center; 
                         background-repeat: no-repeat; 
+                    }
+
+                    header img {
+                        width: 400px; /* Pas de breedte aan naar wens */
+                        height: auto; /* Zorgt ervoor dat de hoogte automatisch wordt aangepast */
                     }
 
                     nav ul {
@@ -219,10 +278,18 @@
                     }
 
                     nav a {
-                        font-size: 30;
+                        font-size: 30px;
                         text-decoration: none;
                         color: white;
+                        text-shadow: 0 0px 7px rgb(0 0 0);
+                        transition: font-size 0.3s ease-in-out; 
                     }
+
+                    nav a:hover {
+                        font-size: 36px; 
+                    }
+
+
 
                     body {
                         padding-top: 60px; 
@@ -272,7 +339,7 @@
                         color: white;
                         text-align: center;
                         padding: 10px;
-                        margin-top: auto; /* Zorgt ervoor dat de footer onderaan blijft */
+                        margin-top: auto;
                         width: 100%;
                     }
 
@@ -285,12 +352,18 @@
                         font-size: 20px;
                     }
 
+                    .filter-box label input {
+                        transition: transform 0.3s ease-in-out; 
+                    }
+
+                    .filter-box label input:hover {
+                        transform: scale(1.1); 
+                    }
+
                     .product-grid {
                         flex-grow: 1;
                         
                     }
-
-
 
                     .product {
                         background: white;
@@ -308,13 +381,38 @@
                     }
 
 
-
                     .add-to-cart {
                         background: #ff4500;
                         color: white;
                         padding: 10px;
                         border: none;
                         cursor: pointer;
+                        transition: transform 0.3s ease-in-out; 
+                    }
+
+                    .add-to-cart:hover {
+                        transform: scale(1.2); 
+                    }
+
+                    #checkout {
+                        background: #db8402;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        cursor: pointer;
+                        transition: transform 0.3s ease-in-out; 
+                    }
+
+                    #checkout:hover {
+                        transform: scale(1.1); 
+                    }
+
+                    #search-bar {
+                        width: 30%;
+                        padding: 15px;
+                        font-size: 20px;
+                        border: 2px solid #ccc;
+                        border-radius: 5px;
                     }
 
                    
