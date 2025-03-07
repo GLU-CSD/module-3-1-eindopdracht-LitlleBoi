@@ -11,9 +11,12 @@
         <label><input type="checkbox"> 20-30€</label><br>
         <label><input type="checkbox"> 30-50€</label><br>
         <label><input type="checkbox"> 50-100€</label><br>
+
     </aside>
 
-    <header>
+    
+    </body>
+<header>
         <img src="assets/img/pokemonlogo.png" alt="Sleeves">
         <input type="text" id="search-bar" placeholder="Search products..." />
         <nav>
@@ -25,8 +28,7 @@
             </ul>
         </nav>
     </header>
-    </body>
-
+    
     <section id="products" class="product-grid">
         <h2>Our Products</h2>
         <div id="product-list">
@@ -38,14 +40,14 @@
             </div>
             <div class="product">
                 <img src="assets/img/pokemonsilver.jpg" alt="lostorginbox">
-                <h3>Pokemon Lost Origin Elite Trainer Box</h3>
-                <p>$89.99</p>
+                <h3>Pokemon 151 Booster Pack</h3>
+                <p>$15.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="assets/img/pokemon151.jpg" alt="Sleeves">
-                <h3>Ultra Pro Soft Card Sleeves (100 stuks)</h3>
-                <p>$1.99</p>
+                <h3>Pokemon Silver Tempest Sleeved</h3>
+                <p>$8.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product">
@@ -208,20 +210,21 @@
 
 <!-- CHECKOUT -->
 <script>
-    // Selecteer de checkout knop
-    const checkoutButton = document.getElementById('checkout');
+    document.addEventListener("DOMContentLoaded", function () {
+        // Selecteer de checkout knop
+        const checkoutButton = document.getElementById('checkout');
 
-    // Functie om af te rekenen
-    function checkout() {
-        if (cartItems.length > 0) {
-            alert('Je hebt ' + cartItems.length + ' item(s) in je winkelwagen. Bedankt voor je aankoop!');
-        } else {
-            alert('Je winkelwagen is leeg. Voeg items toe voordat je afrekent.');
+        // Controleer of de knop bestaat
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', function () {
+                if (cartItems.length > 0) {
+                    window.location.href = 'bestelformulier.html'; // Verwijs naar de checkout pagina
+                } else {
+                    alert('Je winkelwagen is leeg. Voeg items toe voordat je afrekent.');
+                }
+            });
         }
-    }
-
-    // Voeg een event listener toe aan de checkout knop
-    checkoutButton.addEventListener('click', checkout);
+    });
 </script>
 
 
@@ -265,8 +268,8 @@
                     }
 
                     header img {
-                        width: 400px; /* Pas de breedte aan naar wens */
-                        height: auto; /* Zorgt ervoor dat de hoogte automatisch wordt aangepast */
+                        width: 400px;
+                        height: auto; 
                     }
 
                     nav ul {

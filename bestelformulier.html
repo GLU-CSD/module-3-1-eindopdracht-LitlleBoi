@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</html>
+<header>
+    <img src="assets/img/pokemonlogo.png" alt="Sleeves">
+    <input type="text" id="search-bar" placeholder="Search products..." />
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Shop</a></li>
+            <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<div class="container">
+    <h2>JE GEGEVENS.</h2>
+    <form>
+        <h4>TYPE BESTELLING:</h4>
+            <input type="radio" name="type" id="particulier"> Particulier
+            <input type="radio" name="type" id="zakelijk"> Zakelijk
+            <br><br>
+
+
+        <h4>AANHEF:</h4>
+            <input type="radio" name="aanhef" id="dhr"> Dhr.
+            <input type="radio" name="aanhef" id="mevr"> Mevr.
+            <br><br>
+
+
+            <h4>VOORNAAM:
+            <input type="text" name="voornaam">
+        </h4>
+        <br><br>
+
+
+        <h4>Achternaam:
+            <input type="text" name="achternaam">
+            </h4>
+            <br><br>
+        
+
+        <h4>Postcode:
+            <input type="text" name="postcode">
+            </h4>
+            <br><br>
+            
+
+        <h4>Huisnummer:
+            <input type="text" name="huisnummer">
+            </h4>
+            <br><br>
+        
+
+        <h4>Land:
+            <select name="land">
+                <option>Nederland</option>
+                <option>België</option>
+            </select>
+        </h4>
+            <br><br>
+
+            <h4>Afleveradres:
+            <input type="radio" name="adres" checked> Op bovenstaand adres bezorgen
+            <input type="radio" name="adres"> Op ander adres bezorgen
+        </h4>
+            <br><br>
+
+
+        <h4>E-mailadres:
+            <input type="email" name="email">
+            </h4>
+            <br><br>
+
+
+        <h4>Telefoonnummer:
+            <input type="tel" name="telefoon">
+        </h4>
+            <br><br>
+
+
+        <h4>Geboortedatum:
+            <input type="date" name="geboortedatum">
+        </h4>
+            <br><br>
+
+
+        <h4>Verzendwijze factuur:
+            <input type="radio" name="factuur" checked> Factuur per e-mail
+            <input type="radio" name="factuur"> Factuur geprint bij de bestelling
+            </h4>
+            <br><br>
+
+
+            <h4>Nieuwsbrief:
+            <input type="checkbox" name="nieuwsbrief"> Ja, ik wil de nieuwsbrief ontvangen
+            </h4>
+            <br><br>
+
+
+            <h4>Wachtwoord:
+            <input type="password" name="wachtwoord">
+            </h4>
+            <br><br>
+
+
+            <h4>Wachtwoord bevestigen:
+            <input type="password" name="wachtwoord_confirm">
+            </h4>
+            <br><br>
+
+
+            <button type="submit">Verder</button>
+
+        </form>
+    </div>
+
+<footer>
+    <p>&copy; 2025 pokemon Shop. All Rights Reserved.</p>
+</footer>
+
+</body>
+<style>
+header {
+    position: relative; /* Gewone plaatsing bovenaan */
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    font-size: 30px;
+    text-shadow: 0 0px 7px rgb(0 0 0);
+    background-image: url('assets/img/pokemonheader.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover; 
+    background-position: center; 
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    background-color: rgb(250, 245, 245);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #8c00ff;
+}
+
+h4 {
+    color:rgb(84, 114, 0)
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+    header img {
+        width: 400px;
+        height: auto;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav a {
+        font-size: 30px;
+        text-decoration: none;
+        color: white;
+        text-shadow: 0 0px 7px rgb(0 0 0);
+        transition: font-size 0.3s ease-in-out; 
+    }
+
+    nav a:hover {
+        font-size: 36px; 
+    }
+
+    footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        margin-top: auto;
+        width: 100%;
+    }
+
+    #search-bar {
+        width: 30%;
+        padding: 15px;
+        font-size: 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
